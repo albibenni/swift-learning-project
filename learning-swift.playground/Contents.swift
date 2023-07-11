@@ -310,4 +310,71 @@ modelY.manufacturer
 
 // Protocols
 
+protocol CanBreathe {
+    func breathe()
+}
+
+struct Animal2: CanBreathe{
+    func breathe(){
+        "Animal breathing"
+    }
+}
+
+struct Person2: CanBreathe{
+    func breathe(){
+        "Animal breathing"
+    }
+}
+
+let dog = Animal2()
+dog.breathe()
+
+let foo = Person2()
+foo.breathe()
+
+
+protocol CanJump {
+    func jump()
+}
+
+extension CanJump {
+    func jump() {
+        "Jumping..."
+    }
+}
+
+struct Cat: CanJump {
+    
+}
+
+let whisker = Cat()
+whisker.jump()
+
+
+protocol HasName {
+    var name: String {get}
+    var age: Int {get set}
+}
+
+extension HasName {
+    func describeMe () {
+        "your name is \(name) and you are \(age) years old"
+    }
+    mutating func increaseAge() {
+        self.age+=1
+    }
+}
+
+struct Dog: HasName {
+    let name: String
+    var age: Int
+}
+
+var woof = Dog (name: "Woof", age: 10)
+
+woof.name
+woof.age
+woof.increaseAge()
+woof.describeMe()
+woof.age
 
