@@ -212,59 +212,59 @@ if let blush = FavoriteEmoji(rawValue: "😊"){
 
 // Class
 
-class Person {
-    var name: String
-    var age: Int
-    init(name: String, age: Int){
-        self.name = name
-        self.age = age
-    }
-    
-    func assignAge (_ newAge: Int) {
-        self.age = newAge
-    }
-}
-
-let myself = Person(name: "Foo", age: 20)
-
-myself.age
-myself.assignAge(10)
-
-myself.age
-
-
-class Vehicle {
-    func goVroom(){
-        "Vroom Vroom"
-    }
-}
-
-
-class Car: Vehicle {
-    
-}
-
-
-let car2 = Car()
-
-car2.goVroom()
-
-
-class Person3 {
-    private(set) var age: Int
-    init(age: Int) {
-        self.age = age
-    }
-    func increaseAge(){
-        self.age += 1
-    }
-}
-
-let p = Person3(age: 10)
-p.age
-//cannot increase age externally
-p.increaseAge()
-p.age
+//class Person {
+//    var name: String
+//    var age: Int
+//    init(name: String, age: Int){
+//        self.name = name
+//        self.age = age
+//    }
+//
+//    func assignAge (_ newAge: Int) {
+//        self.age = newAge
+//    }
+//}
+//
+//let myself = Person(name: "Foo", age: 20)
+//
+//myself.age
+//myself.assignAge(10)
+//
+//myself.age
+//
+//
+//class Vehicle {
+//    func goVroom(){
+//        "Vroom Vroom"
+//    }
+//}
+//
+//
+//class Car: Vehicle {
+//
+//}
+//
+//
+//let car2 = Car()
+//
+//car2.goVroom()
+//
+//
+//class Person3 {
+//    private(set) var age: Int
+//    init(age: Int) {
+//        self.age = age
+//    }
+//    func increaseAge(){
+//        self.age += 1
+//    }
+//}
+//
+//let p = Person3(age: 10)
+//p.age
+////cannot increase age externally
+//p.increaseAge()
+//p.age
 
 
 class Tesla {
@@ -423,3 +423,32 @@ func increaseSpeedIfVehicle(
 }
 
 increaseSpeedIfVehicle(bike3)
+
+extension Int {
+    func plusTwo() -> Int {
+        self+2
+    }
+}
+let two = 2
+two.plusTwo()
+
+struct PersonExtension {
+    let firstName: String
+    let lastName: String
+}
+
+extension PersonExtension {
+    init(fullName: String) {
+        let components = fullName
+            .components(separatedBy: " ")
+        self.init(
+            firstName: components.first ?? fullName,
+            lastName: components.last ?? fullName
+        )
+    }
+}
+
+let personext = PersonExtension(fullName: "Foo Bar")
+
+personext.firstName
+personext.lastName
