@@ -378,3 +378,34 @@ woof.increaseAge()
 woof.describeMe()
 woof.age
 
+protocol Vehicle3 {
+    var speed: Int {get set}
+    mutating func increaseSpeed(by value : Int)
+}
+
+extension Vehicle3 {
+    mutating func increaseSpeed(
+        by value :Int
+    ) {
+        self.speed += value
+    }
+}
+
+struct Bike3: Vehicle3 {
+    var speed: Int
+    init(){
+        self.speed = 0
+    }
+}
+var bike3 = Bike3()
+bike3.speed
+bike3.increaseSpeed(by: 10)
+bike3.speed
+
+func describe(obj: Any) {
+    if obj is Vehicle3 {
+        "is Veichle"
+    } else {
+        "is not"
+    }
+}
