@@ -409,3 +409,17 @@ func describe(obj: Any) {
         "is not"
     }
 }
+
+func increaseSpeedIfVehicle(
+   _ obj: Any
+){
+    if var vehicle = obj as? Vehicle3 {
+        vehicle.speed
+        vehicle.increaseSpeed(by: 12)
+        vehicle.speed
+    } else {
+        "This is not a vehicle"
+    }
+}
+
+increaseSpeedIfVehicle(bike3)
